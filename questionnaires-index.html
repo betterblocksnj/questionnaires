@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Questionnaires — Better Blocks NJ</title>
+<meta name="description" content="Better Blocks New Jersey candidate questionnaires on housing, transit, street safety, and parks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #E6E2D5;
+  --surface: #EEEADD;
+  --border: #D0CCBF;
+  --text: #1A2744;
+  --text-secondary: #3A4A5E;
+  --text-muted: #6B7585;
+  --accent: #6B7D3A;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+
+.header {
+  background: var(--text);
+  color: var(--bg);
+  padding: 2.5rem 1.5rem 2rem;
+}
+.header-inner { max-width: 720px; margin: 0 auto; }
+.header-org { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9BAA6A; margin-bottom: 0.75rem; }
+.header h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; margin-bottom: 0.5rem; }
+.header p { font-size: 0.95rem; color: #B8B6B0; max-width: 540px; line-height: 1.5; }
+
+.content { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+.questionnaire-list { list-style: none; }
+
+.questionnaire-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s;
+}
+.questionnaire-item:hover { border-color: var(--accent); }
+
+.questionnaire-item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.q-item-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.q-item-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.q-item-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.q-item-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .header { padding: 1.75rem 1rem 1.5rem; }
+  .content { padding: 1.5rem 1rem 3rem; }
+  .questionnaire-item { padding: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-org">Better Blocks New Jersey</div>
+    <h1>Candidate Questionnaires</h1>
+    <p>Side-by-side candidate responses on housing, transit, street safety, and parks.</p>
+  </div>
+</header>
+
+<main class="content">
+  <ul class="questionnaire-list">
+    <li class="questionnaire-item">
+      <a href="nj08-2026/">
+        <div class="q-item-meta">June 2, 2026 Democratic Primary</div>
+        <div class="q-item-title">NJ-08 Congressional Questionnaire</div>
+        <div class="q-item-desc">16 questions on federal policy covering LIHTC, Section 8, NEPA reform, BRT, PATH oversight, Penn Station through-running, Vision Zero, and more. Responses from Rep. Rob Menendez Jr. and Mussab Ali.</div>
+        <span class="q-item-link">Read responses →</span>
+      </a>
+    </li>
+  </ul>
+</main>
+
+<footer class="footer">
+  <p>Published by <a href="https://betterblocksnj.org">Better Blocks New Jersey</a>, a volunteer-run NJ Continuing Political Committee.</p>
+</footer>
+
+</body>
+</html>
