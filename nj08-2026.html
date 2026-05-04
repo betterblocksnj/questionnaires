@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NJ-08 Congressional Questionnaire — Better Blocks NJ</title>
+<meta name="description" content="Side-by-side comparison of candidate responses to the Better Blocks NJ congressional questionnaire for the NJ-08 Democratic primary, June 2, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #E6E2D5;
+  --surface: #EEEADD;
+  --border: #D0CCBF;
+  --text: #1A2744;
+  --text-secondary: #3A4A5E;
+  --text-muted: #6B7585;
+  --accent: #6B7D3A;
+  --support: #6B7D3A;
+  --support-bg: #D9DECA;
+  --hedge: #8B6914;
+  --hedge-bg: #EDE5C8;
+  --nocheck: #6B7585;
+  --nocheck-bg: #DBD8CD;
+  --neutral-badge-bg: #DBD8CD;
+  --neutral-badge-color: #6B7585;
+  --candidate-accent: #1A2744;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --max-width: 1200px;
+  --radius: 6px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+.header { background: var(--text); color: var(--bg); padding: 2.5rem 1.5rem 2rem; }
+.header-inner { max-width: var(--max-width); margin: 0 auto; }
+.header-org { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9BAA6A; margin-bottom: 0.75rem; }
+.header h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.5rem, 4vw, 2.25rem); line-height: 1.2; margin-bottom: 0.5rem; }
+.header-sub { font-size: 0.95rem; color: #B8B6B0; max-width: 640px; line-height: 1.5; }
+.header-sub strong { color: #D0CCBF; }
+.key-diff { max-width: var(--max-width); margin: 1.5rem auto; padding: 0 1.5rem; }
+.key-diff-card { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+.key-diff-title { font-weight: 700; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+.key-diff-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.key-diff-tag { display: inline-flex; align-items: center; gap: 0.35rem; background: var(--hedge-bg); color: var(--hedge); font-size: 0.8rem; font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 3px; cursor: pointer; transition: background 0.15s; text-decoration: none; }
+.key-diff-tag:hover { background: #E2D9B5; }
+.key-diff-tag .tag-q { font-weight: 700; }
+.section-nav { max-width: var(--max-width); margin: 0 auto; padding: 1rem 1.5rem; position: sticky; top: 0; background: var(--bg); z-index: 100; border-bottom: 1px solid var(--border); }
+.section-nav-inner { display: flex; gap: 0.25rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.section-nav-inner::-webkit-scrollbar { display: none; }
+.section-nav a { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-decoration: none; padding: 0.5rem 0.85rem; border-radius: 4px; white-space: nowrap; transition: all 0.15s; }
+.section-nav a:hover, .section-nav a.active { background: var(--text); color: var(--bg); }
+.content { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem 3rem; }
+.section-header { padding: 2rem 0 0.75rem; border-bottom: 2px solid var(--text); margin-bottom: 1.5rem; }
+.section-header h2 { font-family: var(--serif); font-weight: 700; font-size: 1.5rem; }
+.section-number { font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; }
+.question-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1.25rem; overflow: hidden; }
+.question-prompt { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; display: flex; gap: 1rem; align-items: flex-start; transition: background 0.15s; }
+.question-prompt:hover { background: #E2DECE; }
+.q-number { font-weight: 700; font-size: 0.85rem; color: var(--text-muted); flex-shrink: 0; padding-top: 0.1rem; min-width: 2rem; }
+.q-text { font-family: var(--serif); font-size: 0.95rem; line-height: 1.55; flex: 1; }
+.q-toggle { flex-shrink: 0; width: 1.5rem; height: 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: transform 0.25s; }
+.question-card.open .q-toggle { transform: rotate(180deg); }
+.stance-bar { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+.stance-cell { padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+.stance-cell:first-child { border-right: 1px solid var(--border); }
+.stance-name { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.04em; color: var(--candidate-accent); }
+.question-card:not(.alt) .stance-cell:last-child .stance-name { color: #4A5E28; }
+.question-card.alt .stance-cell:first-child .stance-name { color: #4A5E28; }
+.stance-badge { font-weight: 600; font-size: 0.72rem; padding: 0.2rem 0.55rem; border-radius: 3px; white-space: nowrap; }
+.stance-badge.support { background: var(--support-bg); color: var(--support); }
+.stance-badge.hedge { background: var(--hedge-bg); color: var(--hedge); }
+.stance-badge.nocheck { background: var(--nocheck-bg); color: var(--nocheck); }
+.responses { display: none; }
+.question-card.open .responses { display: grid; grid-template-columns: 1fr 1fr; }
+.response-panel { padding: 1.25rem 1.5rem; font-size: 0.88rem; line-height: 1.65; color: var(--text-secondary); }
+.response-panel:first-child { border-right: 1px solid var(--border); }
+.question-card:not(.alt) .response-panel:last-child { background: #E8ECDB; }
+.question-card.alt .response-panel:first-child { background: #E8ECDB; }
+.response-panel p { margin-bottom: 0.75rem; }
+.response-panel p:last-child { margin-bottom: 0; }
+.response-label { font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; color: var(--candidate-accent); }
+.question-card:not(.alt) .response-panel:last-child .response-label { color: #4A5E28; }
+.question-card.alt .response-panel:first-child .response-label { color: #4A5E28; }
+.expand-controls { display: flex; justify-content: flex-end; padding: 0.75rem 0; }
+.expand-btn { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); background: none; border: 1px solid var(--border); padding: 0.35rem 0.85rem; border-radius: 4px; cursor: pointer; transition: all 0.15s; }
+.expand-btn:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+.footer { max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.5rem; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+@media (max-width: 700px) {
+  .header { padding: 1.75rem 1rem 1.5rem; }
+  .key-diff { padding: 0 1rem; }
+  .section-nav { padding: 0.75rem 1rem; }
+  .content { padding: 0 1rem 2rem; }
+  .footer { padding: 1.5rem 1rem; }
+  .stance-bar { grid-template-columns: 1fr; }
+  .stance-cell:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .question-card.open .responses { grid-template-columns: 1fr; }
+  .response-panel:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .q-text { font-size: 0.9rem; }
+  .question-prompt { padding: 1rem; gap: 0.75rem; }
+  .response-panel { padding: 1rem; }
+  .stance-cell { padding: 0.6rem 1rem; }
+}
+@media print {
+  .section-nav, .expand-controls, .q-toggle { display: none !important; }
+  .responses { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .question-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner">
+  <div class="header-org">Better Blocks New Jersey</div>
+  <h1>NJ-08 Congressional Questionnaire</h1>
+  <p class="header-sub">Side-by-side candidate responses for the <strong>June 2, 2026 Democratic primary</strong>. Challenger <strong>Mussab Ali</strong> and incumbent <strong>Rep. Rob Menendez Jr.</strong> on housing, transit, street safety, and parks.</p>
+</div></header>
+
+<div class="key-diff"><div class="key-diff-card">
+  <div class="key-diff-title">Key Divergences</div>
+  <div class="key-diff-items">
+    <a class="key-diff-tag" href="#q5" onclick="openQuestion('q5')"><span class="tag-q">Q5</span> NEPA reform</a>
+    <a class="key-diff-tag" href="#q7" onclick="openQuestion('q7')"><span class="tag-q">Q7</span> PATH oversight</a>
+    <a class="key-diff-tag" href="#q8" onclick="openQuestion('q8')"><span class="tag-q">Q8</span> Penn Station through-running</a>
+    <a class="key-diff-tag" href="#q10" onclick="openQuestion('q10')"><span class="tag-q">Q10</span> NJ Transit funding</a>
+    <a class="key-diff-tag" href="#q13" onclick="openQuestion('q13')"><span class="tag-q">Q13</span> Highway funding conditions</a>
+  </div>
+</div></div>
+
+<nav class="section-nav"><div class="section-nav-inner">
+  <a href="#housing" class="active">Housing</a>
+  <a href="#transit">Transit</a>
+  <a href="#safety">Street Safety</a>
+  <a href="#parks">Parks &amp; Open Space</a>
+  <a href="#open">Open Response</a>
+</div></nav>
+
+<main class="content">
+
+<div id="housing" class="section-header"><div class="section-number">Section I</div><h2>Housing</h2></div>
+<div class="expand-controls"><button class="expand-btn" onclick="toggleAll(this)" data-section="housing">Collapse all</button></div>
+
+<div class="question-card open" id="q1" data-section="housing">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q1</span><span class="q-text">Do you support increasing the federal Low-Income Housing Tax Credit (LIHTC) allocation, and should the per-capita cap be indexed to construction cost inflation? If so, by how much would you expand it?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Expanding the federal LIHTC allocation is an easy step toward addressing our housing crisis, and yes, the per-capita cap should be indexed to construction cost inflation. As rents in Jersey City and Hoboken continue to push working families out of the communities they built, we need every available federal tool to accelerate the production of affordable housing. LIHTC has a strong track record of financing affordable units that the private market alone will not produce, and allowing the cap to erode in real terms over time undermines that effectiveness. I support a substantial expansion of the credit alongside indexing to ensure it keeps pace with actual construction costs, so that the financing available today is not worth significantly less in five years.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Our country's affordability crisis is fundamentally driven by a severe housing shortage that has increased both rental and ownership prices, preventing families from building stability or saving for the future. While federal and state governments have a range of affordability tools at their disposal, those efforts will fall short if we do not significantly increase the overall supply of housing.</p><p>The LIHTC has the potential to be one of our most effective federal tools for producing affordable housing, but inflation in relevant sectors has eroded the efficacy of this tool over time. While the cap is already indexed to inflation broadly, the LIHTC is uniquely connected to construction costs, and inflation in that sector often grows faster than the CPI. That's why I'm supportive of House proposals that would raise the cap, including proposals that specify a 50 percent increase in the LIHTC allocation.</p><p>I also agree that program efficacy could be improved if the per-capita cap were to be indexed to construction cost inflation. At a minimum, the LIHTC should align with a construction cost index to fully account for year-over-year increases in construction costs. I'm also open to considering a modest index floor that provides baseline stability while allowing for more significant increases when needed. Together, these changes could better allow the LIHTC program to meet the urgent housing needs facing communities like ours.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q2" data-section="housing">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q2</span><span class="q-text">Housing Choice Vouchers (Section 8) currently serve only about 1 in 4 eligible households nationwide. Do you support making vouchers an entitlement for all eligible households, or do you support incremental expansion?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Entitlement</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Entitlement</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>That only 1 in 4 eligible households receives a voucher is a policy failure, not an inevitability. Housing vouchers are one of the most direct tools we have to help low-income families access stable housing, and rationing them through a lottery system means millions of eligible households are simply left out. I support making vouchers a true entitlement for all eligible households. Incremental expansion, while better than nothing, leaves too many people behind for too long. I would also push for reforms that make vouchers actually usable in high-opportunity areas, where landlords frequently refuse to accept them, so that the program delivers on its full potential.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>We established Section 8 Housing Vouchers to meet an urgent need for stable affordable housing for low income families. But since the program's conception, underfunding has prevented Section 8 from making good on that promise. That's why I strongly believe that Section 8 Vouchers should be an entitlement for all eligible households, and I cosponsored legislation that would do just that: Rep. Maxine Waters' Ending Homelessness Act, which would make Housing Choice Vouchers an entitlement program. We need bold proposals like this to close the gap between housing need and available assistance. I will continue working to expand and strengthen Section 8 Vouchers until every family has access to the assistance they need to maintain a decent quality of life.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q3" data-section="housing">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q3</span><span class="q-text">The largest cost for most American families is housing; the second largest is their car. With the price of both going up rapidly, what are some tools the federal government can use to encourage the development of more mass transit and housing near transit? Would you support federal legislation that would tie federal funding for transit improvements to transit-oriented development near transit projects that receive federal funds as a carrot-and-stick incentive?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Housing and transportation costs together represent the two largest financial burdens on most American families. Federal policy has for too long treated them in silos. I strongly support tying federal transit funding to transit-oriented development as both a carrot and a stick. When the federal government invests in a transit project, the surrounding land use should reflect that investment. Walkable, mixed-income, higher-density housing that reduces car dependency and lowers the combined cost burden for working families should be required. My platform explicitly includes incentives for transit-oriented development, and I believe federal infrastructure dollars should actively reward communities that align their zoning with their transit investments rather than allowing those investments to be surrounded by sprawl or luxury-only development.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>The idea that housing and transit should reinforce one another has the potential to improve many of the challenges working families face, especially when paired with safeguards to protect tenant rights and affordability. I believe the federal government can play an important role in encouraging communities to embrace transit-oriented development policies that they may not otherwise pursue. That's why I'm supportive of federal incentives to galvanize housing development in transit-served areas, including reforms that address density, zoning and land use, parking, and transit design. At the same time, I would be cautious about approaches that could harm communities already struggling to grapple with rising costs and limited fiscal capacity, particularly at a time when the Trump Administration is endangering many resources that our communities rely on.</p><p>At the end of the day, I'm open to carefully designed "carrot-and-stick" approaches, but I would evaluate them closely to ensure they encourage better alignment between housing and transit without unduly penalizing communities.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q4" data-section="housing">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q4</span><span class="q-text">The ROAD to Housing Act seeks to bolster affordability by expanding low-income housing stock and increasing overall supply. However, housing advocates and legislators (including Senator Schatz who has ultimately opposed the bill after initially sponsoring it) have raised concerns regarding language that could inadvertently increase costs for families. Do you support the Act in its current form? If not, what specific amendments would you propose to address potential negative impacts?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge hedge">&#9680; Amend</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge hedge">&#9680; Amend</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>I support the goals of the ROAD to Housing Act but the concerns raised by housing advocates and Senator Schatz about language that could inadvertently increase costs for families (by, e.g., disincentivizing institutional investors from constructing new housing in the first place) are serious and deserve to be addressed before passage. That said, any housing legislation must be evaluated not just by the supply it creates, but by who benefits and who bears the cost. I would work with housing advocates, tenant organizations, and affected communities to identify the specific provisions that create problematic incentives and propose targeted amendments to address them, ensuring the final bill delivers genuine affordability rather than supply gains that primarily benefit higher-income households.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>I strongly agree with this bill's goal of increasing the housing supply and preventing the harms that can come from large-scale ownership. While many of this bill's provisions are urgently needed, I am also aware that some of the policies under consideration have the potential to generate unintended drawbacks and influence the availability of rental opportunities. Should the House consider this bill, I would be open to targeted amendments that ensure the bill expands housing opportunities for working families as intended. That requires policies that support both rental and ownership opportunities, maintain and build incentives for new housing development, and keep costs low for families.</p></div>
+  </div>
+</div>
+
+<div id="transit" class="section-header"><div class="section-number">Section II</div><h2>Transit</h2></div>
+<div class="expand-controls"><button class="expand-btn" onclick="toggleAll(this)" data-section="transit">Collapse all</button></div>
+
+<div class="question-card open" id="q5" data-section="transit">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q5</span><span class="q-text">The HBLR Northern Branch extension to Bergen County has been stuck in environmental review since 2001. In 2023, the FTA rescinded its 2007 notice of intent because the project had changed too much, which effectively reset the NEPA clock after 16 years of study. Do you support reforming NEPA to streamline environmental review for transit projects? Specifically, would you support categorical exclusions for transit projects in existing rights-of-way, statutory time limits on environmental review, or a "one federal decision" framework that consolidates reviews across agencies?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>The HBLR Northern Branch situation is a cautionary tale that should not be allowed to repeat itself. Having the NEPA clock effectively reset after 16 years of environmental review is just bureaucratic dysfunction that delays the very projects our communities need. I support meaningful NEPA reform for transit, including categorical exclusions for transit projects in existing rights-of-way, statutory time limits on environmental review, and a "one federal decision" framework that consolidates reviews across agencies. Transit projects in established corridors pose fundamentally different environmental risks than greenfield highway construction, and our regulatory framework should reflect that distinction. Streamlining review for transit is also a climate imperative: every year of delay on projects like the Northern Branch extension is another year of car dependency and emissions that could have been avoided.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Communities can't benefit from projects that are never completed. Thankfully, there's bipartisan consensus that we need permitting reform to deliver new infrastructure faster and at lower cost. I believe we must provide developers and communities with greater certainty to help move projects more efficiently while preserving robust environmental reviews that protect overburdened communities.</p><p>That's why I voted for the Fiscal Responsibility Act, which established statutory deadlines of two years for Environmental Impact Statements and one year for Environmental Assessments, and codified the principles of the "One Federal Decision" framework. I also recognize that delays in environmental review extend beyond NEPA itself and stem from the broader web of statutes that govern major projects. I cosponsored the Energy Bills Relief Act, which would improve interagency coordination through an interconnected environmental data system to standardize information across agencies, project sponsors, and the public.</p><p>I never lose sight of the fact that our district is on the frontlines of climate change and environmental justice. Many of our communities are near overburdened infrastructure and one of the most polluted rivers in the country, and they have borne the cumulative impacts of decades of environmental harm. I strongly believe in the underlying value of NEPA and environmental review, and while I support targeted reforms to improve efficiency, I am generally opposed to categorical exclusions that would completely bypass meaningful environmental analysis. We don't have to choose between building infrastructure and protecting our communities — we just need a permitting process that allows for both.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q6" data-section="transit">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q6</span><span class="q-text">Tens of thousands of residents in Hudson County, Newark, and Elizabeth rely on the bus. Do you support dedicated federal funding for Bus Rapid Transit? Would you advocate for BRT on JFK Boulevard in Hudson County to receive FTA Capital Investment Grant funding? Would you revive a similar proposal to link Elizabeth and Newark by BRT or light rail?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Tens of thousands of Hudson County residents depend on the bus every day, and they deserve the same federal investment attention as rail projects. I fully support dedicated federal funding for Bus Rapid Transit and would actively advocate for BRT on JFK Boulevard in Hudson County to receive FTA Capital Investment Grant funding. JFK Boulevard is a heavily traveled corridor where dedicated bus infrastructure could dramatically improve reliability and speed for working commuters. During my 2025 mayoral campaign, fast and fare-free buses with signal priority on dedicated lanes was a centerpiece of my transit platform, and that commitment has not changed. I would also support reviving a proposal to link Elizabeth and Newark by BRT or light rail—these are dense, transit-dependent communities that deserve better connectivity and should not be left out of regional transit investment.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Buses are the backbone of our transit system. Tens of thousands of residents in our district rely on them every day to get to work, school, and essential services. That's why I support Bus Rapid Transit (BRT) and believe we should fully leverage programs like the Federal Transit Administration Capital Investment Grants to deliver faster, more reliable service. I am happy to support a BRT project along JFK Boulevard, as well as a strong proposal to better connect Elizabeth and Newark through high-quality transit. Since taking office, I've prioritized investing in modern, efficient bus and transit infrastructure to lower transportation costs, reduce congestion, and increase access to transit opportunities. I'll continue to partner with our local entities to bring federal dollars back to the district and champion projects that deliver real improvements for the people who rely on transit most.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q7" data-section="transit">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q7</span><span class="q-text">PATH is operated by the Port Authority and is regulated by the Federal Railroad Administration like commuter railroads such as NJ Transit. Most subways are regulated by the Federal Transit Administration. This difference puts the PATH under stricter safety standards than the MTA and results in much higher operating costs and less frequent off-peak and weekend service. Do you believe PATH should be brought under FTA oversight like its neighboring system in New York City?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; FTA</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; FTA*</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Bringing PATH under FTA oversight is a common-sense reform that would reduce operating costs, allow for more frequent off-peak and weekend service, and align PATH's regulatory framework with the subway systems it effectively functions alongside. The current arrangement—where PATH is regulated by the FRA like a commuter railroad while operating like an urban subway—creates unnecessary cost burdens and service limitations that directly harm NJ-08 commuters. Thousands of our residents depend on PATH for their daily commutes, and they deserve a system that is regulated in a way that enables the kind of frequent, reliable service that makes transit a genuine alternative to driving.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>PATH plays a critical role in connecting communities across the Hudson River, and it must operate safely, reliably, and efficiently. One of my biggest priorities in Congress is advancing modern and efficient mass transit systems, and I'm open to evaluating the potential benefits of reclassifying PATH to align it with other urban transit systems. Reclassifying PATH could offer meaningful improvements that increase flexibility and expand services for commuters.</p><p>Since any shift in oversight would also affect labor classifications, work rules, and safety standards, I would prioritize close engagement with all impacted stakeholders, including labor unions, PATH employees, the Port Authority, and regional transit partners, to ensure any major changes are thoughtfully designed to benefit both workers and commuters. While these discussions will ultimately clarify my position, I am encouraged by the potential benefits of reclassifying PATH, and when we once again have a Democratic president, I am happy to engage with the Administration to advocate for the needs of our community.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q8" data-section="transit">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q8</span><span class="q-text">Penn Station is the busiest rail hub in the Western Hemisphere, yet NJ Transit and LIRR trains use the station as a terminal, a legacy operational constraint that severely limits capacity. Do you support federal investment in through-running infrastructure at Penn Station, allowing NJ Transit trains to continue through to Long Island rather than terminating at New York Penn? What role should the federal government play in advancing this?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge nocheck">— No box checked</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Penn Station's terminal configuration is a legacy constraint that artificially limits the capacity of the most important rail hub in the Western Hemisphere, and fixing it is one of the highest-leverage investments the federal government could make in Northeastern rail. I support federal investment in through-running infrastructure at Penn Station to allow NJ Transit trains to continue through to Long Island rather than terminating. The federal government should play an active role in advancing this by funding feasibility and engineering studies, providing capital investment through the FRA and FTA, and convening the relevant stakeholders—NJ Transit, the MTA, Amtrak, and the Port Authority—around a shared implementation framework. Through-running would expand capacity, reduce congestion, and improve service for all commuters who currently face crowded, unreliable service in and out of Penn Station every day.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Penn Station is used by hundreds of thousands of workers, parents, small business owners, and other commuters every day. But thanks to bottlenecks and operational constraints, riders that rely on Penn Station have to deal with delays, congestion, and a system that isn't meeting demand. We need to get serious about improving Penn Station's capacity, and that requires bold and innovative solutions.</p><p>Through-running is one idea that has the potential to create capacity, cut congestion, and improve the rider experience. Recent feasibility studies have identified challenges associated with existing designs to execute this system. However, there is debate over the extent to which many of these challenges genuinely limit through-running capacity. Any future efforts would need to evaluate whether design changes could enable a through-running proposal to better meet our goals and manage real-world constraints. The federal government can play a central role in ensuring further studies to assess feasibility, bringing all the relevant partners to the table, and fighting for federal funding for future projects. Since Penn Station impacts our entire region, I am committed to coordinating with the New York and New Jersey delegations to ensure addressing these issues remains a priority.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q9" data-section="transit">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q9</span><span class="q-text">Regional planners have long identified extensions of New York City subway lines (particularly the 7 train to Secaucus and the C train across the George Washington Bridge) as high-value trans-Hudson investments. Do you believe the federal government should fund feasibility studies and eventual construction of cross-Hudson subway extensions? How would you advocate for NJ-8's inclusion?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>I support federal funding for feasibility studies and, where warranted, eventual construction of these extensions. The federal government should be an active partner in regional transit planning at this scale, not a passive funder waiting for states to sort out jurisdictional disputes. I would advocate strongly for NJ-08's inclusion by working with the relevant House committees, partnering with our counterparts in New York's congressional delegation, and making the case that these investments deliver regional economic and climate benefits that justify federal participation.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>I believe this is exactly the kind of investment the federal government should lead, and I have championed this effort at the federal level. Our region drives the national economy. But we currently rely too heavily on a small number of rail tunnels and services that fail to meet our region's needs and leave us vulnerable to disruptions. Extending the 7 train and the C train would expand trans-Hudson capacity, reduce congestion, and give riders more affordable options than today's limited system.</p><p>That's why I asked the late Rep. Bill Pascrell to join me in pushing MTA to extend the 7 train into NJ — preferably using congestion pricing revenue from which MTA is unilaterally benefitting from. I maintain that the previous feasibility study sufficiently demonstrates the immense benefits of extending the 7 train to Secaucus. But if another feasibility study is what it takes to get this effort off the ground, I will happily support it and push for federal investment in these important initiatives.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q10" data-section="transit">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q10</span><span class="q-text">NJ Transit suffers from chronic underfunding and service reliability problems that directly affect NJ-8 commuters. How will you bring more federal funds back to New Jersey for needed capital improvement projects for NJ Transit?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge" style="background:var(--nocheck-bg);color:var(--nocheck);">Open response</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge" style="background:var(--nocheck-bg);color:var(--nocheck);">Open response</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>NJ Transit is the economic lifeline of our district, and its chronic underfunding imposes a real, daily cost on the working families who depend on it. I will fight for dedicated, stable federal funding for NJ Transit capital improvement projects through the appropriations process, building coalitions with other Northeast members of Congress and consistently making the case that transit investment is simultaneously a climate investment, an economic investment, and an equity investment. It is worth noting that my opponent, Rob Menendez, opposed congestion pricing and the new funds offered by the State of New York—one of the most effective tools available to reduce car traffic, fund transit improvements, and clean up our air—a position that put him squarely on the side of the status quo at the expense of NJ Transit riders and the broader region. I will push to fully fund the Gateway Tunnel Project as the single most critical infrastructure investment for our district and the broader Northeast corridor. I will also work to ensure that federal formula funding through the FTA reflects NJ Transit's actual capital needs, and I will partner with grassroots transit advocates and commuter groups to build the public and political pressure that drives real investment.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Our commuters deserve a rail system that is reliable, modern, and affordable. But too often, NJ Transit riders are forced to deal with delays and aging infrastructure thanks to years of underinvestment. Since my first term in Congress, when I asked to serve on the House Transportation and Infrastructure Committee, I've been focused on bringing more federal resources back to New Jersey.</p><p>I've brought back almost $40 million in project-specific funding through the Congressional Project Spending process, including for a number of vital transportation infrastructure projects. And I've worked hand in hand with our municipalities, transit agencies, and the Port Authority to secure federal grant funding for capital improvement projects. I also strongly support the Gateway Program, which is critical for New Jersey and the entire Northeast Corridor. Improving tunnel capacity and reliability into New York will reduce delays and allow for better service across the NJ Transit system.</p><p>My commitment is to fight for every federal dollar New Jersey deserves and make sure it translates into safer, more reliable transit options for the families I represent.</p></div>
+  </div>
+</div>
+
+<div id="safety" class="section-header"><div class="section-number">Section III</div><h2>Street Safety</h2></div>
+<div class="expand-controls"><button class="expand-btn" onclick="toggleAll(this)" data-section="safety">Collapse all</button></div>
+
+<div class="question-card open" id="q11" data-section="safety">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q11</span><span class="q-text">In 2025, 21 people were killed on Hudson County roads. Do you support increasing funding for Safe Streets and Roads for All (SS4A) grants?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Twenty-one people killed on Hudson County roads in 2025 is a preventable tragedy, and SS4A grants are one of the most direct federal tools available to fund the infrastructure changes (e.g., protected crossings, traffic calming, improved signal timing) that save lives. I fully support increasing funding for SS4A grants and would advocate for NJ-08 communities to access them aggressively. We don't have to look far for proof that this approach works: Hoboken's Vision Zero program has made it one of the safest cities in the country for pedestrians, going years without a single traffic fatality through a combination of protected intersections, reduced speed limits, and street redesigns that prioritize people over cars. That is the model the rest of Hudson County and the nation should be following, and federal investment through SS4A is how we scale it. As a former Board of Education President, pedestrian safety near schools was a direct concern of mine, and I believe the federal government has a responsibility to resource communities that are committed to reducing traffic fatalities.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Every community deserves streets that are safe to walk, bike, and drive on. I am proud to have secured over $1.8 million in Safe Streets and Roads for All grants during my first term to help support critical planning and demonstration activities for pedestrian, cyclist, and traffic safety improvements in the district, as well as bring back $25 million in grant funding for the 12th Street Corridor Improvement Project to create a safer traveling experience for walkers, cyclists, and drivers alike.</p><p>I've also used the annual appropriations cycle to secure funding for street safety projects in our district. For Fiscal Year 2026 alone, I secured federal funding for a pedestrian bridge over Manhattan Avenue, Passaic Ave safety improvements to create physically separated bike lanes and high visibility crosswalks, the Route 440 pedestrian bridge, and Newark Safe Gateway pedestrianization and traffic safety improvements.</p><p>In a district with immense transportation infrastructure, safety must remain a priority. I will continue to advocate for increased funding for the program through the appropriations process, and will work with local partners to ensure NJ-08 remains competitive for future grants that advance safety initiatives.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q12" data-section="safety">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q12</span><span class="q-text">The federal Manual on Uniform Traffic Control Devices (MUTCD) has long been criticized for prioritizing vehicle throughput over pedestrian safety. Do you support reforming the MUTCD to incorporate Vision Zero principles?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>The MUTCD has long prioritized vehicle throughput at the expense of the pedestrians and cyclists who share those same streets, and reforming it to incorporate Vision Zero principles is long overdue. In dense urban districts like NJ-08, where so many residents walk, bike, and take transit every day, federal design standards that default to maximizing car speed create streets that are genuinely dangerous for everyone else. I support reforming the MUTCD to incorporate Vision Zero principles, including design standards that prioritize pedestrian safety, lower default speed limits in urban environments, and require consideration of vulnerable road user safety in all federally funded projects. Streets should be designed for the people who use them, not just for the vehicles passing through.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>For too long, federal standards have prioritized vehicle throughput over pedestrian and cyclist safety, which has had deadly consequences in our communities. I will continue to advocate to update our federal standards to implement reforms centered around people that will result in a safer transportation system for drivers, pedestrians and cyclists alike. Specifically, I support amending the Manual on Uniform Traffic Control Devices (MUTCD) with urgency to include data driven Vision Zero principles that prioritize community engagement, incorporate stakeholder engagement to achieve zero traffic related deaths. Our urban communities deserve the flexibility and support they need to design streets that work for everyone—not just cars.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q13" data-section="safety">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q13</span><span class="q-text">Would you support conditioning federal highway funding on states meeting pedestrian and cyclist fatality reduction targets, similar to how highway funding has historically been tied to seatbelt laws and DUI enforcement?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge nocheck">— No box checked</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>Using federal highway funding as leverage to drive pedestrian and cyclist fatality reduction is exactly the kind of accountability mechanism that has worked in other contexts, and it makes sense to apply the same logic to vulnerable road user safety. States that receive federal highway dollars should be held to measurable progress on reducing the deaths and serious injuries that those same roads produce. I support conditioning federal highway funding on states meeting pedestrian and cyclist fatality reduction targets, paired with technical assistance and funding to help states achieve those targets through proven interventions. Accountability without resources is unfair; a "resources without accountability" approach is insufficient. Both are necessary.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>I firmly believe that we must explore every tool available to us to address the worrying rise in pedestrian and cyclist fatalities, including linking federal highway funding to safety goals. At the same time, I believe it is vital to ensure that state and local governments have the resources they need to maintain the transportation systems our families rely on, especially at a time when critical funding across programs is being slashed by the current Administration.</p><p>We've seen in the past that tying federal highway funding to safety goals can drive meaningful progress, not only through penalties that encouraged adoption of seatbelt laws, but also through programs like Safe Streets and Roads for All, which have prompted cities to adopt safety strategies in order to access federal grants. I will continue to prioritize policies that protect lives, strengthen accountability, and ensure that federal investments are driving safety gains.</p></div>
+  </div>
+</div>
+
+<div id="parks" class="section-header"><div class="section-number">Section IV</div><h2>Parks &amp; Open Space</h2></div>
+<div class="expand-controls"><button class="expand-btn" onclick="toggleAll(this)" data-section="parks">Collapse all</button></div>
+
+<div class="question-card open" id="q14" data-section="parks">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q14</span><span class="q-text">Liberty State Park sits directly behind Ellis Island and the Statue of Liberty — two of the most visited national historic sites in the country — yet the only way for New Jersey visitors to reach them is by ferry. Would you support federal funding for a pedestrian bridge from Liberty State Park to Ellis Island, improving access to these national landmarks from the state that shares jurisdiction over them?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>There is something deeply ironic about the fact that the Statue of Liberty—a symbol so central to our campaign and to the immigrant identity of this district—sits surrounded by NJ-08 waters and yet technically lies outside our district's boundaries, accessible to New Jersey visitors only by ferry. Liberty State Park is one of the great public spaces of our region, and the fact that residents cannot easily walk to Ellis Island and the Statue of Liberty is a missed opportunity that federal investment should address. I support federal funding for a pedestrian bridge connecting Liberty State Park to Ellis Island. This would improve equitable access for the millions of New Jersey residents who currently must pay for a ferry, strengthen the connection between the park and the sites it neighbors, and create a lasting piece of infrastructure that reflects NJ-08's identity as a gateway community for immigrants past and present.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>I would support a pedestrian connection from Liberty State Park to Ellis Island to improve access, equity, and the visitor experience at one of our nation's most meaningful historic sites. A pedestrian bridge would create a more predictable and resilient way for visitors to explore our nation's history. After review to guard against adverse environmental impacts, I would support federal investment in this project.</p></div>
+  </div>
+</div>
+
+<div class="question-card open" id="q15" data-section="parks">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q15</span><span class="q-text">Would you support more federal green infrastructure grants, like the post-Hurricane Sandy Rebuild by Design initiative, for more urban flood resilience projects in parks — such as bioswales, retention basins, and permeable surfaces — particularly in flood-prone areas of Hudson County?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge support">&#10003; Support</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge support">&#10003; Support</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>NJ-08's low-lying communities face growing flood risk from storm surge, extreme rainfall, and sea level rise, and green infrastructure—bioswales, retention basins, permeable surfaces—is among the most cost-effective and community-beneficial approaches to building resilience. I strongly support more federal green infrastructure grants modeled on the post-Sandy Rebuild by Design initiative, with explicit targeting toward flood-prone areas of Hudson County and other vulnerable communities in the district. These investments serve multiple purposes simultaneously: they reduce flood damage, improve water quality, create green space in dense urban neighborhoods that often lack it, and build climate resilience in the frontline communities that are hit hardest. Federal climate investment should be reaching these neighborhoods, and I will fight to make sure it does.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>I have been an outspoken proponent of the Rebuild by Design initiative and the need for collaboration across all levels of government for greater urban flood resilience in our communities. I was glad to see the Biden Administration make this a priority, and I will continue to fight for more federal green infrastructure resources to help our most flood-prone neighborhoods address growing extreme climate related risks.</p><p>Initiatives like Rebuild by Design exemplify the value of combining federal resources with local expertise to address the greatest challenges that our urban communities face. Hudson County's low-lying, concrete heavy areas are particularly vulnerable to the short bursts of heavy rainfall that are increasing because of climate change, as well as to sea level rise and storm surge. And traditional gray infrastructure is too costly and environmentally damaging to resolve these challenges on its own. Nature based and green infrastructure solutions, such as bioswales, retention basins, and permeable surfaces, provide practical, cost-effective tools that help cities manage climate change while simultaneously advancing additional aligned goals like habitat restoration, green space creation, and heat island mitigation. In densely populated, flood-prone areas like Hudson County, these strategies are critical because they work with our environment rather than against it.</p></div>
+  </div>
+</div>
+
+<div id="open" class="section-header"><div class="section-number">Section V</div><h2>Open Response</h2></div>
+
+<div class="question-card open" id="q16" data-section="open">
+  <div class="question-prompt" onclick="toggleCard(this)"><span class="q-number">Q16</span><span class="q-text">Please tell us more about your legislative agenda and how it ties into our core issue areas. What is the single accomplishment in your professional career that has most improved quality of life in New Jersey's cities?</span><span class="q-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+  <div class="stance-bar"><div class="stance-cell"><span class="stance-name">Ali</span><span class="stance-badge" style="background:var(--nocheck-bg);color:var(--nocheck);">Open response</span></div><div class="stance-cell"><span class="stance-name">Menendez</span><span class="stance-badge" style="background:var(--nocheck-bg);color:var(--nocheck);">Open response</span></div></div>
+  <div class="responses">
+    <div class="response-panel"><div class="response-label">Mussab Ali</div><p>My campaign platform is built around the core conviction that the federal government should make life materially better for working families, and the issues Better Blocks NJ champions sit at the heart of that agenda. On housing, I will fight to expand the National Housing Trust Fund, repeal the Faircloth Amendment, develop a federal social housing program, strengthen tenant protections, and incentivize transit-oriented development that pairs affordability with access. On transit, the Gateway Tunnel is my top infrastructure priority, but I will also champion NJ Transit modernization, BRT expansion, PATH reform, and the kinds of regional transit investments—like cross-Hudson subway extensions—that could transform mobility for our district. On street safety, I support Vision Zero principles, SS4A grant expansion, MUTCD reform, and federal accountability mechanisms that make states take pedestrian and cyclist fatalities seriously. On parks and resilience, I support green infrastructure investment, urban flood mitigation, and protecting the open space that our dense communities depend on for public health and quality of life.</p><p>As for the single accomplishment in my career that has most improved quality of life in New Jersey's cities: as President of the Jersey City Board of Education, I led the effort to remediate lead contamination in school drinking water across more than 300 water fountains in the district—a problem that had persisted for over 15 years. Children were going to school and drinking from fountains that posed a real public health risk, and families had no idea. Getting that fixed required confronting bureaucratic inertia, securing resources, and making clear that safe learning environments are non-negotiable. It is the accomplishment I am most proud of, because it delivered a direct, tangible improvement in the health and safety of thousands of children in Jersey City's public schools.</p></div>
+    <div class="response-panel"><div class="response-label">Rep. Rob Menendez Jr.</div><p>Priorities like transportation, housing, and infrastructure are at the center of my legislative agenda because they drive life for so many New Jerseyans. Whether commuting to work, getting children to school, or connecting to essential services, our families depend on robust infrastructure and public spaces that are built with their needs in mind.</p><p>That is why my legislative agenda is focused on improving affordability for working families, building sustainable transportation and infrastructure, and ensuring that federal dollars come back to our district. I will continue pushing for transformative investments in the Northeast Corridor, including the Gateway Program, as well as prioritize investments that modernize our transportation and energy systems, promoting electrification, EV charging infrastructure, and clean-energy transit technologies.</p><p>I know that so much of what I've accomplished has only been possible through strong partnerships with state and local partners and the people who call this district home. I'm particularly proud of helping secure historic federal transportation and infrastructure investments for New Jersey, including through the CPF process, federal grants, and Gateway Program funding. These investments are already transforming our district for the better.</p><p>I'm also immensely proud of having built an incredible constituent services operation that has helped thousands of residents navigate federal agencies, resolve casework issues, and access the benefits and services they are entitled to. That work has reinforced for me how directly federal infrastructure and housing policies shape everyday life.</p><p>At the end of the day, my goal is simple: to improve the lives of New Jersey families through thoughtful policies that make daily life more affordable, our infrastructure more reliable, and our communities more accessible.</p></div>
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <p>Published by <a href="https://betterblocksnj.org">Better Blocks New Jersey</a>, a volunteer-run NJ Continuing Political Committee. Candidate responses are published in full. The challenger is listed first. Questions where a candidate declined to check a box are noted.</p>
+</footer>
+
+<script>
+function toggleCard(prompt) {
+  var card = prompt.closest('.question-card');
+  card.classList.toggle('open');
+  updateSectionButton(card.dataset.section);
+}
+function openQuestion(id) {
+  var card = document.getElementById(id);
+  if (card && !card.classList.contains('open')) card.classList.add('open');
+  setTimeout(function() { card.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+}
+function toggleAll(btn) {
+  var section = btn.dataset.section;
+  var cards = document.querySelectorAll('.question-card[data-section="' + section + '"]');
+  var allOpen = Array.from(cards).every(function(c) { return c.classList.contains('open'); });
+  cards.forEach(function(c) { if (allOpen) c.classList.remove('open'); else c.classList.add('open'); });
+  btn.textContent = allOpen ? 'Expand all' : 'Collapse all';
+}
+function updateSectionButton(section) {
+  if (!section) return;
+  var btn = document.querySelector('.expand-btn[data-section="' + section + '"]');
+  if (!btn) return;
+  var cards = document.querySelectorAll('.question-card[data-section="' + section + '"]');
+  var allOpen = Array.from(cards).every(function(c) { return c.classList.contains('open'); });
+  btn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+}
+var sections = document.querySelectorAll('.section-header');
+var navLinks = document.querySelectorAll('.section-nav a');
+function updateActiveNav() {
+  var current = '';
+  sections.forEach(function(s) { if (s.getBoundingClientRect().top < 120) current = s.id; });
+  navLinks.forEach(function(link) { link.classList.toggle('active', link.getAttribute('href') === '#' + current); });
+}
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+// -- checkerboard: alternate green highlight between columns --
+var allCards = document.querySelectorAll('.question-card');
+allCards.forEach(function(card, i) { if (i % 2 === 1) card.classList.add('alt'); });
+
+// -- iframe height reporter for WordPress embed --
+function reportHeight() {
+  var h = document.documentElement.scrollHeight;
+  window.parent.postMessage({ type: 'bbnj-resize', height: h }, '*');
+}
+// Report on load, resize, and after any expand/collapse (DOM changes)
+window.addEventListener('load', reportHeight);
+window.addEventListener('resize', reportHeight);
+var observer = new MutationObserver(function() { setTimeout(reportHeight, 50); });
+observer.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['class'] });
+reportHeight();
+</script>
+</body>
+</html>
