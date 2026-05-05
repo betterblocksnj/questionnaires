@@ -22,7 +22,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
 body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
-
 .header {
   background: var(--text);
   color: var(--bg);
@@ -32,11 +31,8 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
 .header-org { font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #9BAA6A; margin-bottom: 0.75rem; }
 .header h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; margin-bottom: 0.5rem; }
 .header p { font-size: 0.95rem; color: #B8B6B0; max-width: 540px; line-height: 1.5; }
-
 .content { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-
 .questionnaire-list { list-style: none; }
-
 .questionnaire-item {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -46,13 +42,11 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
   transition: border-color 0.15s;
 }
 .questionnaire-item:hover { border-color: var(--accent); }
-
 .questionnaire-item a {
   text-decoration: none;
   color: inherit;
   display: block;
 }
-
 .q-item-title {
   font-family: var(--serif);
   font-weight: 700;
@@ -60,7 +54,6 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
   color: var(--text);
   margin-bottom: 0.35rem;
 }
-
 .q-item-meta {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -68,13 +61,11 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
   letter-spacing: 0.04em;
   margin-bottom: 0.5rem;
 }
-
 .q-item-desc {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.55;
 }
-
 .q-item-link {
   display: inline-block;
   margin-top: 0.75rem;
@@ -82,7 +73,6 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
   font-weight: 700;
   color: var(--accent);
 }
-
 .footer {
   max-width: 720px;
   margin: 0 auto;
@@ -94,7 +84,6 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
 }
 .footer a { color: var(--accent); text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
-
 @media (max-width: 600px) {
   .header { padding: 1.75rem 1rem 1.5rem; }
   .content { padding: 1.5rem 1rem 3rem; }
@@ -103,7 +92,6 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
 </style>
 </head>
 <body>
-
 <header class="header">
   <div class="header-inner">
     <div class="header-org">Better Blocks New Jersey</div>
@@ -111,9 +99,16 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
     <p>Side-by-side candidate responses on housing, transit, street safety, and parks.</p>
   </div>
 </header>
-
 <main class="content">
   <ul class="questionnaire-list">
+    <li class="questionnaire-item">
+      <a href="bayonne-mayor-2026.html">
+        <div class="q-item-meta">May 12, 2026 Municipal Election</div>
+        <div class="q-item-title">Bayonne Mayoral Questionnaire</div>
+        <div class="q-item-desc">10 questions on PILOTs, affordable housing, Mount Laurel, BRT on JFK Boulevard, Vision Zero, the Newark Bay Bridge reconstruction, and GreenWay connections. Responses from Sharon Ashe-Nadrowski, Loyad Booker, and Mary Jane Desmond.</div>
+        <span class="q-item-link">Read responses →</span>
+      </a>
+    </li>
     <li class="questionnaire-item">
       <a href="nj08-2026.html">
         <div class="q-item-meta">June 2, 2026 Democratic Primary</div>
@@ -124,10 +119,8 @@ body { font-family: var(--sans); background: var(--bg); color: var(--text); line
     </li>
   </ul>
 </main>
-
 <footer class="footer">
   <p>Published by <a href="https://betterblocksnj.org">Better Blocks New Jersey</a>, a volunteer-run NJ Continuing Political Committee.</p>
 </footer>
-
 </body>
 </html>
