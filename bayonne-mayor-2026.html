@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bayonne Mayoral Questionnaire — Better Blocks NJ</title>
+<meta name="description" content="Side-by-side comparison of candidate responses to the Better Blocks NJ mayoral questionnaire for the May 12, 2026 Bayonne election.">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-light: #2D3E5C;
+  --olive: #4A6741;
+  --olive-light: #5C7D52;
+  --cream: #F8F5EF;
+  --cream-dark: #EDE8DE;
+  --sand: #D4CCBA;
+  --ink: #1A1A1A;
+  --ink-soft: #3A3A3A;
+  --ink-muted: #6B6B6B;
+  --white: #FFFFFF;
+  --red-badge: #B8423A;
+  --green-badge: #3A7D44;
+  --amber-badge: #A67C37;
+  --blue-badge: #2D6AA0;
+  --divider: #D6D0C4;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --card-shadow-hover: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+
+  /* candidate tints — kept neutral/muted */
+  --c1-bg: #F0F4F8;
+  --c1-border: #C8D4E0;
+  --c1-accent: #4A6FA5;
+  --c2-bg: #F4F2EE;
+  --c2-border: #D4CCBA;
+  --c2-accent: #7A6F5F;
+  --c3-bg: #F0F5F0;
+  --c3-border: #C4D4C0;
+  --c3-accent: #4A7A52;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: 'Source Sans 3', -apple-system, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 15px;
+}
+h1, h2, h3 { font-family: 'Source Serif 4', Georgia, serif; }
+
+/* ─── HEADER ─── */
+.site-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+.site-header .org {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+}
+.site-header h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.site-header .subtitle {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ─── CONTAINER ─── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─── CANDIDATE KEY ─── */
+.candidate-key {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  background: var(--white);
+  border-bottom: 1px solid var(--divider);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.candidate-key .chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+.chip--c1 { background: var(--c1-bg); border-color: var(--c1-border); color: var(--c1-accent); }
+.chip--c2 { background: var(--c2-bg); border-color: var(--c2-border); color: var(--c2-accent); }
+.chip--c3 { background: var(--c3-bg); border-color: var(--c3-border); color: var(--c3-accent); }
+.chip .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.chip--c1 .dot { background: var(--c1-accent); }
+.chip--c2 .dot { background: var(--c2-accent); }
+.chip--c3 .dot { background: var(--c3-accent); }
+
+/* ─── SECTION NAV ─── */
+.section-nav {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  padding: 0;
+  margin: 24px auto 0;
+  max-width: 700px;
+  border-bottom: 2px solid var(--divider);
+}
+.section-nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.section-nav a:hover { color: var(--ink); }
+.section-nav a.active {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
+/* ─── EXPAND/COLLAPSE ─── */
+.section-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 4px;
+}
+.expand-btn {
+  background: none;
+  border: none;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.expand-btn:hover { background: var(--cream-dark); }
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 28px 0 4px;
+  scroll-margin-top: 80px;
+}
+
+/* ─── QUESTION CARD ─── */
+.question-card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.question-card:hover { box-shadow: var(--card-shadow-hover); }
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.question-header:hover { background: rgba(0,0,0,0.015); }
+.q-number {
+  font-family: 'Source Serif 4', serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy);
+  flex-shrink: 0;
+  padding-top: 1px;
+  min-width: 28px;
+}
+.q-text {
+  flex: 1;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.q-badges {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.badge--yes { background: #D5F0D7; color: #1E6B2C; }
+.badge--no { background: #FADBD8; color: #922B21; }
+.badge--cond { background: #FEF3CD; color: #7A5D00; }
+.badge--blank { background: #E8E8E8; color: #6B6B6B; }
+.badge--c1 { border-left: 3px solid var(--c1-accent); }
+.badge--c2 { border-left: 3px solid var(--c2-accent); }
+.badge--c3 { border-left: 3px solid var(--c3-accent); }
+
+.chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--ink-muted);
+  transition: transform 0.2s;
+  margin-top: 1px;
+}
+.question-card.open .chevron { transform: rotate(180deg); }
+
+.question-body {
+  display: none;
+  border-top: 1px solid var(--divider);
+}
+.question-card.open .question-body { display: block; }
+
+/* ─── RESPONSE COLUMNS ─── */
+.responses {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+.response {
+  padding: 16px 20px;
+  border-right: 1px solid var(--divider);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.response:last-child { border-right: none; }
+.response--c1 { background: var(--c1-bg); }
+.response--c2 { background: var(--c2-bg); }
+.response--c3 { background: var(--c3-bg); }
+.response-name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid;
+}
+.response--c1 .response-name { color: var(--c1-accent); border-color: var(--c1-accent); }
+.response--c2 .response-name { color: var(--c2-accent); border-color: var(--c2-accent); }
+.response--c3 .response-name { color: var(--c3-accent); border-color: var(--c3-accent); }
+.response p { margin-bottom: 10px; }
+.response p:last-child { margin-bottom: 0; }
+.response .blank {
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+/* ─── GREENWAY TABLE ─── */
+.greenway-grid {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.greenway-grid th, .greenway-grid td {
+  padding: 6px 10px;
+  text-align: center;
+  border: 1px solid var(--divider);
+}
+.greenway-grid th {
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--cream);
+  color: var(--ink-muted);
+}
+.greenway-grid td.project-name {
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink);
+}
+.gw-yes { color: var(--green-badge); font-weight: 700; }
+.gw-no { color: var(--ink-muted); }
+.gw-na { color: var(--ink-muted); font-style: italic; font-size: 11px; }
+
+/* ─── FOOTER ─── */
+.site-footer {
+  text-align: center;
+  padding: 40px 24px;
+  font-size: 12px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--divider);
+  margin-top: 40px;
+  line-height: 1.6;
+}
+.site-footer a { color: var(--navy); }
+.site-footer .disclaimer {
+  max-width: 600px;
+  margin: 0 auto 12px;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 700px) {
+  .site-header { padding: 36px 16px 28px; }
+  .site-header h1 { font-size: 22px; }
+  .container { padding: 0 12px; }
+  .candidate-key { gap: 8px; padding: 12px 12px; }
+  .chip { font-size: 11px; padding: 4px 10px; }
+  .section-nav { overflow-x: auto; justify-content: flex-start; padding: 0 8px; }
+  .section-nav a { white-space: nowrap; font-size: 12px; padding: 8px 12px; }
+  .responses {
+    grid-template-columns: 1fr;
+  }
+  .response { border-right: none; border-bottom: 1px solid var(--divider); }
+  .response:last-child { border-bottom: none; }
+  .question-header { padding: 14px 16px; }
+  .q-badges { flex-wrap: wrap; }
+  .q-text { font-size: 13.5px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="org">Better Blocks New Jersey</div>
+  <h1>Bayonne Mayoral Questionnaire</h1>
+  <p class="subtitle">Candidate responses on housing, transit, street safety, and parks ahead of the May 12, 2026 election. Responses are published verbatim.</p>
+</header>
+
+<div class="candidate-key">
+  <span class="chip chip--c1"><span class="dot"></span>Sharon Ashe-Nadrowski</span>
+  <span class="chip chip--c2"><span class="dot"></span>Loyad Booker</span>
+  <span class="chip chip--c3"><span class="dot"></span>Mary Jane Desmond</span>
+</div>
+
+<div class="container">
+
+<nav class="section-nav">
+  <a href="#housing" class="active">Housing &amp; Zoning</a>
+  <a href="#transit">Transit</a>
+  <a href="#safety">Street Safety</a>
+  <a href="#parks">Parks</a>
+</nav>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HOUSING & ZONING -->
+<!-- ═══════════════════════════════════════ -->
+<h2 class="section-header" id="housing">Housing &amp; Zoning</h2>
+<div class="section-controls">
+  <span></span>
+  <button class="expand-btn" data-section="housing" onclick="toggleSection('housing')">Collapse all</button>
+</div>
+
+<!-- Q1 -->
+<div class="question-card open" data-section="housing">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q1</span>
+    <span class="q-text">Do you support requiring all future residential PILOTs to include an affordable housing set-aside as a condition of approval?</span>
+    <span class="q-badges">
+      <span class="badge badge--no badge--c1">Yes</span>
+      <span class="badge badge--cond badge--c2">Cond.</span>
+      <span class="badge badge--cond badge--c3">Cond.</span>
+    </span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>If the developer doesn't want to include affordable units, they are not welcome in Bayonne. New Jersey needs new supply at a price our residents can afford, not more luxury apartments meant for people leaving New York City.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p>I would support requiring an affordable housing set-aside in future residential PILOT agreements, provided the policy is structured in a way that produces meaningful affordability while still allowing projects to remain financially viable and move forward. The goal should be to ensure new development contributes to housing opportunities for working families and seniors without discouraging investment that benefits Bayonne overall.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>This needs to be coordinated with public policy and a new master plan. My answer is that new development should include EITHER a set aside OR community benefit payment and the final answer as to which applies in a specific development depends on location and how the project fits into our neighborhoods and special purpose districts outlined in a new master plan. I would make certain that our city ordinances include such language and it would be predicated on the special purpose zone impacted and specific community needs in that area as to whether added units or cash payment into the affordable housing trust is best for our residents.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="question-card open" data-section="housing">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q2</span>
+    <span class="q-text">What specific zoning or regulatory actions would your administration take to ensure the city meets its Mount Laurel affordable housing obligation — and where would new affordable units be located?</span>
+    <span class="q-badges"></span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>First of all, we need to leverage the money in our affordable housing trust fund to rehab existing units. Second, mixed use development focused on transit village zoning would be my priority, because it's not only wealthy residents that should get to live near public transit. The whole premise of the Light Rail was supposed to be making travel around our region more affordable, not a trolley for the rich. Bayonne is key to the Light Rail's original mission of reducing reliability on cars, and with the way the world is going I think as people see the increasing price in gas they will feel more and more tempted to change their lifestyles accordingly.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p>1. Inclusionary zoning tied to growth areas. Adopt or strengthen an inclusionary zoning ordinance requiring a set percentage of affordable units in new multi-family developments—especially along transit corridors and redevelopment zones like the waterfront and areas near the 34th Street light rail. This aligns new housing with infrastructure while meeting Mount Laurel doctrine obligations.</p>
+        <p>2. Redevelopment + adaptive reuse. Designate underutilized or city-owned sites (vacant lots, obsolete industrial properties) as redevelopment areas and partner with developers to build mixed-income housing. Prioritize scattered-site infill across neighborhoods to avoid overconcentration, ensuring affordability is integrated citywide rather than isolated.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>This is major tenet of my vision for the future of Bayonne. WE NEED A NEW MASTER PLAN. Additionally, we must combine public policy, planning and finance to focus on creating NEW affordable housing units. Currently we work closely with our Bayonne Housing Authority to address both the rehabilitation of affordable housing projects and most recently looking at building new units. It should be noted that Bayonne exceeds its obligations with respect to the Mount Laurel obligations, and I believe this puts us in a great position to start addressing new units. This requires doing a city wide needs assessment, in preparation for a new master plan document. I want to have specific special purposes zoning areas, such as a financial area, transit hubs, medical community around the hospital, arts and entertainment, historic and the like. Mapping out special purpose districts will change the dynamics of development and redevelopment in our city. It gives control back to the city in deciding what is appropriate in a specific area vs. a helter skelter free for all approach to development.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="question-card open" data-section="housing">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q3</span>
+    <span class="q-text">Some critics argue that PILOT agreements are unfair tax giveaways to developers. Do you agree with that characterization?</span>
+    <span class="q-badges"></span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>PILOTs can be a tool for good, but many times are abused to line the pockets of politicians. Positive examples of PILOT provisions can include the building of new development-adjacent green spaces that are open to an entire community, as well as cash infusions toward environmental remediation or other short-term expenses. Because PILOTs sap so much money from the education system, establishing a trust fund to divert part of those payments to our boards of education like Hoboken does is also a good example.</p>
+        <p>However, obviously PILOTs can be abused. For example, after the Gamal Group wrote Loyad Booker a $2,600 check, he voted to award them a 25-year PILOT to build luxury apartments with zero affordable units, which means Bayonne taxpayers are paying Gamal to build homes our own residents will not be able to afford. The best way to prevent this from happening is to take a stance against developer influence in politics and give yourself more leverage to actually negotiate. If, at the end of the day, the developer's plan doesn't serve our particular needs, they don't have to build in Bayonne.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p>No, I don't agree that PILOT agreements are simply giveaways to developers. When used properly, they're a tool to turn underutilized or vacant properties into productive assets that generate steady revenue for the city—often more predictably than conventional taxes on land that might otherwise sit undeveloped. That said, I don't support open-ended negotiations or vague promises of community givebacks; every PILOT should have clear, upfront terms, with defined contributions to the city, including support for a housing trust fund where appropriate. The focus should be on transparency, accountability, and ensuring residents can see exactly how these agreements deliver real, measurable benefits to Bayonne.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>I was a long time critic but now have a slightly different perspective. First we need to control what kind, how much, how fast and where new PILOT development occurs. But PILOTs bring more money into city coffers than conventional taxes for a specified period of time and it transforms fallow land into something productive in our community. It is the county that gets less of the tax dollars and it will ultimately need to be make up the difference to meet its obligations somehow. We need a long range plan for how we will survive after the PILOTs are done and what we may have to do when the county needs to make up the declining tax dollars. PILOTs should not be a permanent way of building a community, and I'd prefer to see more emphasis on commercial PILOTs rather than residential. We want to bring more jobs into town, not just new residents. All this development puts an inordinate amount of strain on an aging—at capacity—infrastructure for roads, water and sewer, gas and electric. Again, this is why a new master plan is imperative.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="question-card open" data-section="housing">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q4</span>
+    <span class="q-text">Would your administration pursue upzoning around potential BRT corridors to allow denser, mixed-use housing development?</span>
+    <span class="q-badges">
+      <span class="badge badge--yes badge--c1">Yes</span>
+      <span class="badge badge--no badge--c2">No</span>
+      <span class="badge badge--yes badge--c3">Yes</span>
+    </span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>Hudson County has recently approved a feasibility study of BRT along JFK Boulevard, which I support. But our residents are also wary of overdevelopment and traffic implications. 14A is already a massive bottleneck that interferes with people's lives on a daily basis. We'd need to incentivize the conversion of single family homes midway down JFK Boulevard into missing middle housing in order to do responsible upzoning that doesn't necessarily impact the existing traffic bottlenecks at 14A and the bridge.</p>
+        <p>That's on my wish list—but until those pieces fall into place, this is why I was so strategic about development down at the base, relentless in advocating for a ferry to finally get built there, and pushing for smarter traffic patterns in that area. Any increased density would be tied to affordable housing, open space, pedestrian safety improvements, infrastructure upgrades and real community benefits.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p class="blank">No explanation provided.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>Yes, this is essential and best addressed with a broad needs assessment and new master plan in terms of designating specific areas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TRANSPORTATION -->
+<!-- ═══════════════════════════════════════ -->
+<h2 class="section-header" id="transit">Transportation &amp; Multimodal Access</h2>
+<div class="section-controls">
+  <span></span>
+  <button class="expand-btn" data-section="transit" onclick="toggleSection('transit')">Collapse all</button>
+</div>
+
+<!-- Q5 -->
+<div class="question-card open" data-section="transit">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q5</span>
+    <span class="q-text">What specific commitments would your administration seek from the NJ Turnpike Authority on the Newark Bay Bridge reconstruction — including noise barriers, local traffic mitigation, and pedestrian/bike infrastructure?</span>
+    <span class="q-badges"></span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>All of the above, but specifically the traffic mitigation. Traffic management plan to prevent cut through traffic on resident streets and clear truck routing to keep heavy trucks off our local roads continued coordination and enforcement. There is no way we can seriously entertain narrowing our own roads to accommodate bike lanes (which many people want to see) if the state is about to make the 14A bottleneck worse.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p>I would make Bayonne's cooperation contingent on clear, enforceable protections and investments from the New Jersey Turnpike Authority tied to the Newark Bay Bridge reconstruction:</p>
+        <p>Noise + quality-of-life protections: Require modern noise barriers, air-quality monitoring, and restricted overnight construction near residential areas.</p>
+        <p>Local traffic mitigation: NJTA should fund traffic officers, signal timing upgrades, and truck-routing enforcement to keep cut-through traffic out of neighborhoods.</p>
+        <p>Pedestrian &amp; bike investments: Secure dedicated funding for safer crossings, protected bike lanes, and connections to the Hudson-Bergen Light Rail so residents have alternatives during construction.</p>
+        <p>One positive: This project is a chance to deliver long-overdue infrastructure upgrades—if negotiated properly, Bayonne can come out of it with safer streets, better transit connections, and improvements that last well beyond the construction period.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>I am not convinced the Newark Bay Bridge reconstruction continues to fit our needs after the state recently declared it was no longer doing two bridges. However, I am involved in monthly meetings addressing concerns with NJTA and their engineers and our Municipal Services Department. These meetings recently got awkward once the new Governor changed the plans. Bayonne is still fighting for the two bridge resolution. The delaying or denial of this significantly impacts Global Terminal, Royal Caribbean port, USPS expansion and our long awaited film production studio the jobs and our economy as well as traffic and safety. Despite the bridge confusion there are several components of long term control plans that still must be addressed in this immediate area which will still impact traffic patterns.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="question-card open" data-section="transit">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q6</span>
+    <span class="q-text">Would you commit to publicly advocating for Bus Rapid Transit on JFK Boulevard and support infrastructure changes within Bayonne's borders to make BRT work?</span>
+    <span class="q-badges">
+      <span class="badge badge--yes badge--c1">Yes</span>
+      <span class="badge badge--yes badge--c2">Yes</span>
+      <span class="badge badge--cond badge--c3">Cond.</span>
+    </span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p class="blank">No explanation provided.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p class="blank">No explanation provided.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>In principle I would commit to this. It is important to know specific details, and unfortunately, I am uncomfortable expressing anything else at the moment without benefit of details. But these are definitely items we need to address for our community for modernization of transportation access—basically there is none in Bayonne at the moment. As with the vision zero plan, I believe there is much to gain from working with a countywide plan in this regard.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- STREET SAFETY -->
+<!-- ═══════════════════════════════════════ -->
+<h2 class="section-header" id="safety">Vision Zero &amp; Street Safety</h2>
+<div class="section-controls">
+  <span></span>
+  <button class="expand-btn" data-section="safety" onclick="toggleSection('safety')">Collapse all</button>
+</div>
+
+<!-- Q7 -->
+<div class="question-card open" data-section="safety">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q7</span>
+    <span class="q-text">Would you commit to adopting a formal Vision Zero policy — including a goal of zero traffic deaths, a dedicated action plan, and annual public reporting?</span>
+    <span class="q-badges">
+      <span class="badge badge--yes badge--c1">Yes</span>
+      <span class="badge badge--yes badge--c2">Yes</span>
+      <span class="badge badge--yes badge--c3">Yes</span>
+    </span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>This is something I'd work with the County with and ask them to take the lead on. It's true that our longest roads are still crash corridors (although not as bad as they used to be); however, the roads that belong to the County are still almost 3x more likely to produce crashes according to their own Vision Zero report. They must be partners in this conversation and no Vision Zero plan will happen without them at the table.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p class="blank">No explanation provided.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>Frankly, I would begin with collaborating with our Police Department/Traffic Control as well as the Hudson County Sheriff's office to expand upon the plan they have been working and perhaps this could be a shared service arrangement throughout the county. It would make more sense to share the vision and the cost and have a cohesive county wide plan. There is a lot of technology and planning costs associated with this and it should not be an impediment to adopting a formal policy and monitoring its effectiveness. There is no doubt that this is an important public health/public safety issue. I would commit to working on an adoptable plan and implementing it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="question-card open" data-section="safety">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q8</span>
+    <span class="q-text">What street design interventions — signal timing, crosswalk upgrades, speed tables, protected bike lanes — would your administration prioritize on Avenue C, Broadway, and the Route 440 frontage roads?</span>
+    <span class="q-badges">
+      <span class="badge badge--blank badge--c2">*</span>
+    </span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>Speed tables are a good temporary solution before any PBL exploration, mostly because of the associated costs. Right now Bayonne has a multimillion dollar deficit and until we get a Mayor and Council in there who can seriously negotiate with developers, there are financial barriers to "all of the above" strategies. Traffic adjustments can be secured through PILOT negotiations.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p class="blank">* Question left blank.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>Food aisles in shop rite are also dangerous when scooters come flying through the store. This is a multi-pronged problem and solution. This is something I would prioritize and would also be a component of a master plan.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PARKS & OPEN SPACE -->
+<!-- ═══════════════════════════════════════ -->
+<h2 class="section-header" id="parks">Parks &amp; Open Space</h2>
+<div class="section-controls">
+  <span></span>
+  <button class="expand-btn" data-section="parks" onclick="toggleSection('parks')">Collapse all</button>
+</div>
+
+<!-- Q9 -->
+<div class="question-card open" data-section="parks">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q9</span>
+    <span class="q-text">Which GreenWay Connections do you support to create linear parks and promote safer transit alternatives?</span>
+    <span class="q-badges"></span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses" style="display:block;">
+      <table class="greenway-grid">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Project</th>
+            <th>Ashe-Nadrowski</th>
+            <th>Booker</th>
+            <th>Desmond</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="project-name">Avenue A Street Park</td>
+            <td class="gw-yes">✓ Yes</td>
+            <td class="gw-yes">✓ Yes</td>
+            <td class="gw-na">—</td>
+          </tr>
+          <tr>
+            <td class="project-name">Bay1-X</td>
+            <td class="gw-yes">✓ Yes</td>
+            <td class="gw-no">—</td>
+            <td class="gw-na">—</td>
+          </tr>
+          <tr>
+            <td class="project-name">440-X</td>
+            <td class="gw-yes">✓ Yes</td>
+            <td class="gw-yes">✓ Yes</td>
+            <td class="gw-na">—</td>
+          </tr>
+          <tr>
+            <td class="project-name">Broadway Waterfront Boardwalk</td>
+            <td class="gw-yes">✓ Yes</td>
+            <td class="gw-no">—</td>
+            <td class="gw-na">—</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="response response--c1" style="margin-top:12px; border-radius:6px;">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>The fiscal reality of a municipality that often gets left out of the conversation is that we often lack the financial support to take on large projects. Therefore, Bay1-X and 440-X are probably more feasible than explicitly local projects because by considering projects that cross municipal borders we can tap into state and county dollars.</p>
+      </div>
+      <div class="response response--c3" style="margin-top:8px; border-radius:6px;">
+        <div class="response-name">Desmond</div>
+        <p>I don't understand the references below. I will find out more, but cannot answer this moment except to say Bayonne is a peninsula. We have a lot of waterfront and should be celebrating this by providing more access for residents and visitors.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="question-card open" data-section="parks">
+  <div class="question-header" onclick="toggleCard(this)">
+    <span class="q-number">Q10</span>
+    <span class="q-text">What initiatives would you take to fund and improve Bayonne's existing public park spaces?</span>
+    <span class="q-badges"></span>
+    <svg class="chevron" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/></svg>
+  </div>
+  <div class="question-body">
+    <div class="responses">
+      <div class="response response--c1">
+        <div class="response-name">Ashe-Nadrowski</div>
+        <p>Green fund paid for by new development.</p>
+      </div>
+      <div class="response response--c2">
+        <div class="response-name">Booker</div>
+        <p>I believe our parks should reflect the pride we have in Bayonne. I will fight to bring in state and federal funding so we're not relying only on local taxes, and I'll build partnerships with businesses to invest back into our community spaces.</p>
+        <p>I will make sure we have a clear plan to upgrade our parks—safer playgrounds, cleaner facilities, more trees, and spaces for families to gather and stay active. Most importantly, I will listen to you, because our parks should serve the people who use them every day.</p>
+        <p>Together, we can make Bayonne's parks stronger, safer, and something every resident can be proud of.</p>
+      </div>
+      <div class="response response--c3">
+        <div class="response-name">Desmond</div>
+        <p>For many decades Bayonne has made public parks, open spaces and recreation a priority and encumbered grant funds and bonded to accomplish this. It is still a priority and we now include developer commitment to these projects whenever we can.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- .container -->
+
+<footer class="site-footer">
+  <div class="disclaimer">Candidate responses are published verbatim and unedited. Questions left blank are marked with an asterisk (*).</div>
+  <div>Better Blocks New Jersey · <a href="https://betterblocksnj.org">betterblocksnj.org</a></div>
+  <div style="margin-top:4px;">Paid for by Better Blocks New Jersey.</div>
+</footer>
+
+<script>
+function toggleCard(header) {
+  const card = header.closest('.question-card');
+  card.classList.toggle('open');
+  updateSectionButton(card.dataset.section);
+}
+
+function toggleSection(section) {
+  const cards = document.querySelectorAll(`.question-card[data-section="${section}"]`);
+  const allOpen = [...cards].every(c => c.classList.contains('open'));
+  cards.forEach(c => {
+    if (allOpen) c.classList.remove('open');
+    else c.classList.add('open');
+  });
+  updateSectionButton(section);
+}
+
+function updateSectionButton(section) {
+  if (!section) return;
+  const btn = document.querySelector(`.expand-btn[data-section="${section}"]`);
+  if (!btn) return;
+  const cards = document.querySelectorAll(`.question-card[data-section="${section}"]`);
+  const allOpen = [...cards].every(c => c.classList.contains('open'));
+  btn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+}
+
+// Section nav active state
+const sections = document.querySelectorAll('.section-header');
+const navLinks = document.querySelectorAll('.section-nav a');
+
+function updateActiveNav() {
+  let current = '';
+  sections.forEach(s => {
+    if (s.getBoundingClientRect().top < 120) current = s.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+</script>
+
+</body>
+</html>
