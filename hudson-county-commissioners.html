@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hudson County Commissioner Candidate Questionnaire | Better Blocks New Jersey</title>
+<meta name="description" content="Compare Hudson County Commissioner candidates on housing, transportation, street safety, and parks policy.">
+<meta property="og:title" content="Hudson County Commissioner Candidate Questionnaire">
+<meta property="og:description" content="Compare where your county commissioners stand on housing, transit, street safety, and parks.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #F5F3EE;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+.wrapper { max-width: 780px; margin: 0 auto; min-height: 100vh; background: #F5F3EE; }
+
+/* Header */
+.header {
+  background: #1A3A5C;
+  padding: 32px 24px 28px;
+  text-align: center;
+}
+.header-org {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7ECFA8;
+  margin-bottom: 10px;
+}
+.header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.header-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 8px;
+}
+
+/* Candidate Legend */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 16px;
+  padding: 14px 18px;
+  background: #EBE8E1;
+  border-bottom: 1px solid #DDD9D0;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.legend-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #555;
+  font-weight: 500;
+}
+.legend-district {
+  color: #999;
+  font-weight: 400;
+}
+
+/* Sections Container */
+.sections { padding: 16px 12px 8px; }
+
+/* Section Block */
+.section-block {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #DDD9D0;
+  background: #FAFAF7;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.section-block.active {
+  border-color: #C8D6CE;
+  background: #FFFFFF;
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 16px 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+.section-block.active .section-header {
+  background: #1A3A5C;
+}
+.section-icon { font-size: 20px; flex-shrink: 0; }
+.section-info { flex: 1; min-width: 0; }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A3A5C;
+  line-height: 1.3;
+}
+.section-block.active .section-title { color: #FFFFFF; }
+.section-count {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+.section-block.active .section-count { display: none; }
+.section-chevron {
+  font-size: 20px;
+  color: #3A7D8C;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.section-block.active .section-chevron {
+  color: #7ECFA8;
+  transform: rotate(180deg);
+}
+
+/* Section Body */
+.section-body { display: none; }
+.section-block.active .section-body { display: block; }
+.section-meta {
+  padding: 14px 18px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.section-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  flex: 1;
+}
+.btn-expand {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #3A7D8C;
+  background: none;
+  border: 1px solid #3A7D8C;
+  border-radius: 3px;
+  padding: 4px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-expand:hover { background: rgba(58,125,140,0.06); }
+
+/* Questions Container */
+.questions-container {
+  margin: 0 10px 14px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #E4E1DA;
+}
+
+/* Question Accordion */
+.question { border-bottom: 1px solid #E4E1DA; }
+.question:last-child { border-bottom: none; }
+.question.open { background: #FFFFFF; }
+.question-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  font-family: inherit;
+}
+.question-short {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A3A5C;
+  margin-bottom: 4px;
+}
+.question-full {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  color: #777;
+  line-height: 1.5;
+  margin-top: 4px;
+  display: none;
+}
+.question.open .question-full { display: block; }
+.question-toggle {
+  font-size: 18px;
+  color: #3A7D8C;
+  font-weight: 300;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.2s ease;
+}
+.question.open .question-toggle { transform: rotate(45deg); }
+
+/* Responses */
+.question-responses {
+  padding: 0 18px 18px;
+  display: none;
+}
+.question.open .question-responses { display: block; }
+
+.response-card {
+  background: #FAFAF7;
+  border-radius: 0 4px 4px 0;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+.response-card:last-child { margin-bottom: 0; }
+.response-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.response-top.has-text { margin-bottom: 8px; }
+.response-who {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.response-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+}
+.response-district {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  color: #888;
+  font-weight: 500;
+}
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.badge-support { background: #D6EDDF; color: #2A5C3A; }
+.badge-observations { background: #E8DFC8; color: #6B5B3A; }
+.response-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  color: #333;
+  line-height: 1.6;
+}
+.response-empty {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #AAA;
+  font-style: italic;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px 18px 28px;
+  border-top: 1px solid #DDD9D0;
+}
+.footer p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  color: #999;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="header-org">Better Blocks New Jersey</div>
+    <h1>Hudson County Commissioner<br>Candidate Questionnaire</h1>
+    <div class="header-sub">Housing · Transportation · Street Safety · Parks</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#1A3A5C"></span>
+      <span class="legend-name">Bill O'Dea <span class="legend-district">(District 2)</span></span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#6B7D3A"></span>
+      <span class="legend-name">Yraida Aponte-Lipski <span class="legend-district">(District 4)</span></span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#3A7D8C"></span>
+      <span class="legend-name">Ron Bautista <span class="legend-district">(District 5)</span></span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background:#4A6741"></span>
+      <span class="legend-name">Alex Valdez <span class="legend-district">(District 9)</span></span>
+    </div>
+  </div>
+
+  <div class="sections" id="sections"></div>
+
+  <div class="footer">
+    <p>Organized by Better Blocks New Jersey · betterblocksnj.org · @BetterBlocksNJ</p>
+  </div>
+</div>
+
+<script>
+const CANDIDATES = [
+  { name: "Bill O'Dea", district: "District 2", title: "Commissioner", color: "#1A3A5C" },
+  { name: "Yraida Aponte-Lipski", district: "District 4", title: "Commissioner & Planning Board", color: "#6B7D3A" },
+  { name: "Ron Bautista", district: "District 5", title: "County Commissioner", color: "#3A7D8C" },
+  { name: "Alex Valdez", district: "District 9", title: "Candidate", color: "#4A6741" },
+];
+
+const SECTIONS = [
+  {
+    id: "housing",
+    title: "Build More Housing",
+    subtitle: "Hudson County must lead on increasing housing supply to address the affordability crisis.",
+    icon: "\u{1F3E0}",
+    questions: [
+      {
+        id: "h1", short: "Affordable Housing Initiative",
+        text: "Approving the Hudson County Affordable Housing Initiative, including its supply-side recommendations, and using county resources and authority to build at least 1,800 units across four county-owned sites.",
+        responses: [
+          { candidate: 0, support: "support", text: "We are in a housing crisis. I have built a track record of working with developers to bring affordable housing to different communities across North Jersey. One of my specialties is helping developers get the funding they need to meet 20% affordability units." },
+          { candidate: 1, support: "support", text: "Our county executive and the commissioners are working to ensure more affordable housing. One way is we are looking to use county property to partner with nonprofit organizations to build affordable housing. Also, the Board has granted approval for Hudson County to accept funding of $596,571 from the U.S. Department of Housing and Urban Development that will facilitate a partnership with the Hudson County Continuum of Care Program to provide housing assistance. Another way we help those in need of housing is by providing necessary services to the unsheltered population in Hudson County. Just a few months ago, my colleagues and I approved the State of New Jersey Department of Human Services to award $177,195 aimed at this population." },
+          { candidate: 2, support: "support_with_observations", text: "This initiative is not yet finalized, and I support that it moves in the right direction by recognizing the role county government can play in addressing the housing crisis, especially through the use of public land to increase the supply of mixed-income homes. But to truly meet this moment, we need to go further. That means ensuring permanent affordability and stability, prioritizing nonprofit or capped-profit development, maintaining long-term public control of land, leveraging density by prioritizing homes over parking, and providing full transparency around how county resources are used." },
+          { candidate: 3, support: "support", text: "Hudson County is facing a very real housing shortage, and building on county-owned land is one of the most direct ways in which county government can relieve the housing cost pressures working-class families are under." }
+        ]
+      },
+      {
+        id: "h2", short: "Transit-Oriented Development",
+        text: "Using county land and financing tools to prioritize transit-oriented development near rail stations and potential Bus Rapid Transit corridors.",
+        responses: [
+          { candidate: 0, support: "support", text: "Not only will I support transit-oriented development, I would look to make developers pay into building out the bus rapid transit corridors by way of community givebacks." },
+          { candidate: 1, support: "support", text: "As someone who lives just a block from John F. Kennedy Boulevard and who has been urging Bus Rapid Transit along this corridor, I fully support using County land and the resources needed to attain these goals." },
+          { candidate: 2, support: "support", text: "Yes, I support using county land and financing tools to prioritize transit-oriented development near rail stations and create Bus Rapid Transit corridors to expand those areas of opportunity to have more mixed-income housing." },
+          { candidate: 3, support: "support", text: "Focusing housing near these transit centers is one of the smartest ways to address housing shortages and public transit challenges simultaneously. TOD\u2019s secondary effects, including traffic decongestion, supporting local businesses, and efficient land use, also benefit the community beyond the immediate area." }
+        ]
+      },
+      {
+        id: "h3", short: "Planning Board Reform",
+        text: "Reforming county planning board review processes to reduce unnecessary delays to establish clear, predictable timelines for applicants so that housing projects move forward without bureaucratic obstruction.",
+        responses: [
+          { candidate: 0, support: "support", text: "I support reform, eliminating unnecessary red tape and tighter timelines across the board barring any hold ups at the applicant\u2019s request." },
+          { candidate: 1, support: "support", text: "Currently I am a planning board representative. Our team thoroughly reviews every application that comes before us. While I always favor effective and efficient improvements, I would need to know specifically what it is that you feel obstructs planning board review processes to be able to respond more adequately." },
+          { candidate: 2, support: "support", text: "Yes, I support improving systems for efficiency." },
+          { candidate: 3, support: "support", text: "Uncertain and long review periods can stall projects, increasing costs, which ultimately limits how much housing is built. However, reform, in service of allowing worthwhile projects to move forward, should avoid cutting corners. Any reform efforts should eliminate inefficiencies without weakening oversight." }
+        ]
+      },
+      {
+        id: "h4", short: "Parking Maximums",
+        text: "Setting parking maximums in all county-owned or county-assisted housing projects to ensure that public dollars do not subsidize car storage at the expense of housing affordability.",
+        responses: [
+          { candidate: 0, support: "support", text: "I do support parking maximums. I would even consider caps being tiered by transit access: lower maximums near light rail and PATH stops, maybe higher maximums where transit is limited. The mechanism should be written into county funding agreements and land-use terms so it applies during the deal stage, and not as an afterthought during site plan review." },
+          { candidate: 1, support: "support", text: "I agree that we should explore better ways of using county-owned or county-assisted housing projects. I believe the best way of handling such concerns requires the input of all the affected constituents. What might work at one setting may not be good for another setting. Good planning requires critical up-to-date conversations based on best practices known at the time." },
+          { candidate: 2, support: "support", text: "Yes, I support setting parking maximums to prioritize housing over parking, and in parallel, fast-tracking rapid transit and micromobility projects to help address car dependency across the county." },
+          { candidate: 3, support: "support", text: "By setting reasonable maximums, we can prioritize housing over car storage and make projects more affordable. This is particularly true in areas of the county where residents have easy access to driving alternatives. However, there are areas where limited driving alternatives exist. The goal should be to right-size to focus land use on housing, green space, and community amenities." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "safety",
+    title: "Vision Zero",
+    subtitle: "Too many people are killed and seriously injured in preventable crashes in Hudson County every year; 21 died on roadways in Hudson County in 2025.",
+    icon: "\u{1F6B8}",
+    questions: [
+      {
+        id: "v1", short: "Tactical Quick-Builds",
+        text: "Approving tactical quick-builds on county roads to install safe, protected intersections; to pilot low-cost protected bike lanes; and install bus priority lanes on county roads to quickly demonstrate safety benefits and build public support for permanent improvements.",
+        responses: [
+          { candidate: 0, support: "support", text: "Quick builds should start near schools and corridors where crash data is the worst, then where bus delays are most documented. Those locations produce the clearest measurable outcomes and the strongest case for making improvements permanent." },
+          { candidate: 1, support: "support", text: "My colleagues and I, along with our federal partners, secured Safe Streets and Roads for All grants of $480,000 under the Bipartisan Infrastructure Bill. Also, Hudson County was awarded an additional $260,000 for supplemental planning efforts focusing on building bicycle and pedestrian networks. These funds will be utilized to develop the Vision Zero Safety Action Plan." },
+          { candidate: 2, support: "support", text: "Since I\u2019m running uncontested, I\u2019m already proposing quick-builds on county roads and I\u2019m setting up meetings with the county government teams to facilitate and provide political coverage for these concepts." },
+          { candidate: 3, support: "support", text: "These low-cost pilots allow us to test improvements and gather data before committing to permanent fixtures. This approach builds public trust and adoption." }
+        ]
+      },
+      {
+        id: "v2", short: "Safe Routes to School",
+        text: "Prioritizing \u201CSafe Routes to School\u201D on county roads and routes to county-operated schools with physical infrastructure like protected bike lanes and daylighting improvements at dangerous intersections.",
+        responses: [
+          { candidate: 0, support: "support", text: "I support prioritizing safe routes to schools on county roads. Daylighting provides immediate visibility for both drivers and pedestrians. In addition to a protected bike lane, there is a need for a bus only lane that would serve school buses and mass transit buses." },
+          { candidate: 1, support: "support", text: "Not only do I fully support this but would also add that we need bike safety trained law enforcement to assist this great initiative." },
+          { candidate: 2, support: "support", text: "Yes, I support prioritizing \u201CSafe Routes to School.\u201D My priority number one is people\u2019s safety for all road users, especially our most vulnerable neighbors." },
+          { candidate: 3, support: "support", text: "Investments in infrastructure such as this directly improves safety for students, parents, school staff, and crossing guards, particularly during chaotic drop-off and pick-up times. It also helps families feel safer allowing their kids to walk or bike to school, improving congestion and traffic flow around schools." }
+        ]
+      },
+      {
+        id: "v3", short: "Automated Parking Enforcement",
+        text: "Expanding automated parking enforcement on county roads modeled on programs like Hoboken\u2019s CLEAR program, to free travel lanes, improve bus speed, and reduce dangerous double-parking near schools, crosswalks, businesses, and bus stops.",
+        responses: [
+          { candidate: 0, support: "support", text: "Double parking is not only an inconvenience but it\u2019s a safety matter that gets ignored because enforcement depends on an officer being in the right place at the right time. Hoboken\u2019s CLEAR program showed real data and produced real deterrents without requiring a cop on every block which allowed police to prioritize matters more efficiently. I\u2019d like the program to start where there are schools." },
+          { candidate: 1, support: "support", text: "I strongly believe in using assistive technology to improve our quality of life, particularly with regard to traffic, however the County does not control parking enforcement." },
+          { candidate: 2, support: "support", text: "Yes, I support expanding the automated parking enforcement modeling the program in Hoboken. I\u2019ve witnessed first-hand the impact and results in both safety and improvement of curbside use." },
+          { candidate: 3, support: "support", text: "Double-parking and blocking lanes slow buses, create congestion, and force pedestrians, cyclists, and drivers into unsafe situations. Automated enforcement helps address this at scale." }
+        ]
+      },
+      {
+        id: "v4", short: "Crosswalk & Signal Upgrades",
+        text: "Upgrading crosswalk visibility, signal timing, and intersection geometry on county roads, including eliminating left turns at high-injury locations where appropriate.",
+        responses: [
+          { candidate: 0, support: "support", text: "This is pretty straightforward." },
+          { candidate: 1, support: "support", text: "Based on community input and traffic studies I would favor upgrading or adding pedestrian friendly apparatuses." },
+          { candidate: 2, support: "support", text: "Yes, I support all of these and I have a track record of more than 10 years advocating for them." },
+          { candidate: 3, support: "support", text: "These are proven safety improvements. They make it easier and safer for pedestrians to cross. Particularly, where the data illustrates a pattern of collision and injury, we should prioritize these interventions." }
+        ]
+      },
+      {
+        id: "v5", short: "Protected Bike Lane Network",
+        text: "Building a protected bike lane network on county roads that will integrate with local municipal efforts and affording protection on busy and dangerous thoroughfares like JFK Boulevard, Paterson Plank Road, County Ave, and Paul Amico Way.",
+        responses: [
+          { candidate: 0, support: "support", text: "County roads are the missing link. Pairing all county roads with protected bike lanes to the various municipalities will turn disconnected local efforts into a functional network that will also benefit our county\u2019s vision zero program. Without the county investing in filling those gaps, riders are forced onto unprotected segments where traffic volume and speeds are the highest." },
+          { candidate: 1, support: "support", text: "I favor looking into ways to integrate protected bike lanes with municipalities." },
+          { candidate: 2, support: "support", text: "Yes, I support both a protected bike lane network on county roads as well as the expansion of Citi Bike on county roads." },
+          { candidate: 3, support: "support", text: "A connected network is key. Linking county roads to local routes, and projects like the Essex-Hudson Greenway, creates a system more people will rely on. Moreover, busy corridors like those mentioned above are often the most dangerous for cyclists. Protected bike lanes can significantly reduce crashes on these roads." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "transit",
+    title: "Better Buses & BRT",
+    subtitle: "35% of households in Hudson County are car-free. JFK Boulevard is one of the most transit-dependent corridors in New Jersey, with over 6 million bus rides per year.",
+    icon: "\u{1F68C}",
+    questions: [
+      {
+        id: "t1", short: "Full BRT on JFK Boulevard",
+        text: "Fully funding a full Bus Rapid Transit system on JFK Boulevard with dedicated bus lanes, signal priority, off-board fare payment, and ADA-accessible level-boarding platforms \u2014 not a watered-down \u201CBRT-lite\u201D that leaves buses stuck in traffic.",
+        responses: [
+          { candidate: 0, support: "support", text: "I support a fully funded BRT program on JFK. Our routine traffic experiences are an infrastructure failure. I would look to create a program that has a dedicated bus lane that serves school buses and mass transit." },
+          { candidate: 1, support: "support", text: "Hudson County in coordination with the North Jersey Transportation Planning Authority (NJTPA) and the New Jersey Department of Transportation (NJDOT) conducted a study to determine appropriate improvements to JFK Blvd. The project goals are to enhance safety and improve operations for all modes of transportation. We aim to improve traffic and increase street safety for all users throughout Hudson County." },
+          { candidate: 2, support: "support", text: "Yes, I support fully funding a full Bus Rapid Transit System on JFK Boulevard, and other major county roads." },
+          { candidate: 3, support: "support", text: "A full, real BRT system would significantly improve commute times and attract more public transit riders, reducing congestion." }
+        ]
+      },
+      {
+        id: "t2", short: "JFK Boulevard Quick-Builds",
+        text: "Implementing quick-builds on JFK Boulevard to demonstrate BRT benefits including paint low-cost, temporary dedicated bus lanes or installing bus priority treatments to speed buses now and build public and political support before full BRT construction.",
+        responses: [
+          { candidate: 0, support: "support", text: "This is straightforward. Once we implement the quick-builds, I think the data will speak for itself; especially if we implement our own CLEAR program. Once that data is reviewed and released, the public and political support will follow." },
+          { candidate: 1, support: "support", text: "I believe we should be looking into ways to pilot BRT and continuing the critical conversations needed to allow the transition to go more smoothly." },
+          { candidate: 2, support: "support", text: "Yes, I believe quick-builds are a great way to show people the benefits of a bus that has exclusive lanes." },
+          { candidate: 3, support: "support", text: "Temporary, low-cost measures like the above let the county show what gains can be made by bus speed and reliability without the wait of full construction. It also allows for adjustments and learning before full implementation." }
+        ]
+      },
+      {
+        id: "t3", short: "NJ Transit Advocacy",
+        text: "Advocating to NJ Transit for improved bus frequency and first/last-mile connections to include expanded bus shelter infrastructure on county roads and better connections to NJ Transit rail stations including Hoboken, Secaucus Junction, and the various Hudson-Bergen Light Rail stops.",
+        responses: [
+          { candidate: 0, support: "support", text: "I\u2019m inclined to believe shelter infrastructure on County Roads should fall on the county so we are not waiting on NJ Transit. As for advocacy, not only do we need consistent appearances at NJ Transit board meetings, but we also need our Hudson County delegation at the state house to partner up with us and help us advocate. I would encourage them to withhold their votes relevant to budget and NJ Transit until our needs are met." },
+          { candidate: 1, support: "support", text: "I would like to continue working with you to advocate these measures." },
+          { candidate: 2, support: "support", text: "" },
+          { candidate: 3, support: "support", text: "Frequency and reliability reduce wait times and make the system usable for daily life. At the same time, first and last-mile connections ensure people can actually get to where they need to go." }
+        ]
+      },
+      {
+        id: "t4", short: "Hudson Hop County Bus",
+        text: "Piloting a \u201CHudson Hop\u201D county bus system modeled after the successful Hoboken Hop to fill in transit gaps that cannot be filled-in easily by NJ Transit and creating opportunities for shared services and consolidation among private municipal, scholastic, and building routes.",
+        responses: [
+          { candidate: 0, support: "support", text: "Hoboken\u2019s Hop demonstrated there is a need for this bus system. A county funded bus system identical to Hop would be effective in providing transportation for Hudson\u2019s most vulnerable residents to areas where there are service gaps. I\u2019d like to see if the County\u2019s Transcend bus system could serve in this Pilot." },
+          { candidate: 1, support: "support", text: "I believe in shared services and would be willing to work with you and others to see how we can elevate this initiative to a county-level implementation." },
+          { candidate: 2, support: "support", text: "Yes, I believe the county has a responsibility to address the transit deserts through a \u201CHudson Hop\u201D style of system." },
+          { candidate: 3, support: "support", text: "A county-run or coordinated shuttle can provide frequent service for short, local trips and first/last-mile connections. Shuttle loops within my district have been a part of my platform since I ran for this office in 2023." }
+        ]
+      }
+    ]
+  },
+  {
+    id: "parks",
+    title: "Parks & Green Infrastructure",
+    subtitle: "Hudson County\u2019s parks are among its greatest assets and among some of the most scandal-plagued.",
+    icon: "\u{1F333}",
+    questions: [
+      {
+        id: "p1", short: "The View at Lincoln Park",
+        text: "Ensuring The View at Lincoln Park meets agreed-upon requirements and opens to the public to fulfill the county\u2019s promise to provide a community amenity for Jersey City and Hudson County residents.",
+        responses: [
+          { candidate: 0, support: "support", text: "We are working with The View\u2019s ownership to ensure it meets its obligation to provide a restaurant concept that will be open to residents and that will be financially feasible. This may take different forms including an outdoor sit down restaurant, quick service or perhaps a food truck component due to the building\u2019s layout." },
+          { candidate: 1, support: "support", text: "I would like to know exactly what promise or promises have been broken to be able to pursue a remedy, which I would formally seek with you." },
+          { candidate: 2, support: "support", text: "" },
+          { candidate: 3, support: "support", text: "Accessible open space is critical to quality of life. When a promise is made to Hudson County residents, it must be kept. It reinforces public trust in future projects." }
+        ]
+      },
+      {
+        id: "p2", short: "West Hudson Park Resilience",
+        text: "Pursuing resilient park improvements at West Hudson Park in Harrison and Kearny to integrate green infrastructure \u2014 flood storage, bioswales, and resilient plantings \u2014 to address Passaic River flood risk and serve a rapidly growing population.",
+        responses: [
+          { candidate: 0, support: "support", text: "The Passaic River flood zone is documented, and the populations in both of those towns are growing faster than the park\u2019s infrastructure. Integrating flood storage and bioswales addresses a real environmental liability while adding green space to the parks." },
+          { candidate: 1, support: "support", text: "I would support resilient park improvements at West Hudson Park." },
+          { candidate: 2, support: "support", text: "" },
+          { candidate: 3, support: "support", text: "These improvements reduce flooding, yes, but they also enhance the park in that they create better recreational space and make it more usable year-round. It\u2019s also more cost-effective over time. Green infrastructure reduces strain on existing stormwater systems and the long-term cost of maintenance and damage." }
+        ]
+      },
+      {
+        id: "p3", short: "Greenway & Stormwater Upgrades",
+        text: "Prioritizing greenway upgrades to county roads to add bioswales and rain gardens to better manage stormwater runoff and improve the local streetscape.",
+        responses: [
+          { candidate: 0, support: "support", text: "Combined sewer overflows across the county are a direct result of impervious surface runoff hitting the system faster than it can handle. Green infrastructure intercepts that runoff at the source." },
+          { candidate: 1, support: "support", text: "I believe our roadways and sidewalks need improvements. Not only residents but also visitors would feel our commitment to health, nature, art, and community." },
+          { candidate: 2, support: "support", text: "" },
+          { candidate: 3, support: "support", text: "These are cost-effective ways to manage stormwater runoff, particularly in a flood-prone county like ours. These also serve to improve the look and feel of our streets. They can add greenery, calm traffic and create more pedestrian-friendly corridors." }
+        ]
+      },
+      {
+        id: "p4", short: "Winter Sports Bubble Program",
+        text: "Establishing a winter sports bubble program at county park facilities to enable year-round use of athletic fields through seasonal bubble structures and create opportunities for indoor racquet, soccer, track and other winter activities for county residents regardless of weather.",
+        responses: [
+          { candidate: 0, support: "support", text: "I have built a track record on recreational sports for our kids at the county level since I started, bringing various summer camps and sports leagues to our county parks system. Establishing a winter sports program would be beneficial for our children. Most winter sports are part of programs that Jersey City families cannot afford, bringing this to the county would help the kids and open new opportunities." },
+          { candidate: 1, support: "support", text: "We are currently renovating the Hank Gallo Center in Lincoln Park and know from firsthand experiences the need for protected gathering spaces, so I would be in favor of seeking appropriate ways to attain this goal." },
+          { candidate: 2, support: "support", text: "" },
+          { candidate: 3, support: "support", text: "Not only is it more cost-effective than building permanent facilities, but it expands access to residents who can\u2019t afford expensive, private indoor recreational space. A pilot approach in a few high-demand locations would be a good start." }
+        ]
+      }
+    ]
+  }
+];
+
+// State
+let activeSection = "housing";
+const openQuestions = {};
+
+function render() {
+  const container = document.getElementById("sections");
+  container.innerHTML = "";
+
+  SECTIONS.forEach(s => {
+    const isOpen = activeSection === s.id;
+    const block = document.createElement("div");
+    block.className = "section-block" + (isOpen ? " active" : "");
+
+    // Header
+    const header = document.createElement("button");
+    header.className = "section-header";
+    header.innerHTML = `
+      <span class="section-icon">${s.icon}</span>
+      <div class="section-info">
+        <div class="section-title">${s.title}</div>
+        <div class="section-count">${s.questions.length} questions</div>
+      </div>
+      <span class="section-chevron">\u25BE</span>
+    `;
+    header.addEventListener("click", () => {
+      activeSection = activeSection === s.id ? null : s.id;
+      render();
+    });
+    block.appendChild(header);
+
+    // Body
+    if (isOpen) {
+      const body = document.createElement("div");
+      body.className = "section-body";
+      body.style.display = "block";
+
+      const allOpen = s.questions.every(q => openQuestions[q.id]);
+
+      // Meta row
+      const meta = document.createElement("div");
+      meta.className = "section-meta";
+      meta.innerHTML = `<p class="section-subtitle">${s.subtitle}</p>`;
+      const btn = document.createElement("button");
+      btn.className = "btn-expand";
+      btn.textContent = allOpen ? "Collapse all" : "Expand all";
+      btn.addEventListener("click", e => {
+        e.stopPropagation();
+        s.questions.forEach(q => { openQuestions[q.id] = !allOpen; });
+        render();
+      });
+      meta.appendChild(btn);
+      body.appendChild(meta);
+
+      // Questions
+      const qContainer = document.createElement("div");
+      qContainer.className = "questions-container";
+
+      s.questions.forEach(q => {
+        const qOpen = !!openQuestions[q.id];
+        const qEl = document.createElement("div");
+        qEl.className = "question" + (qOpen ? " open" : "");
+
+        const qHeader = document.createElement("button");
+        qHeader.className = "question-header";
+        qHeader.innerHTML = `
+          <div>
+            <div class="question-short">${q.short}</div>
+            <div class="question-full">${q.text}</div>
+          </div>
+          <span class="question-toggle">+</span>
+        `;
+        qHeader.addEventListener("click", () => {
+          openQuestions[q.id] = !openQuestions[q.id];
+          render();
+        });
+        qEl.appendChild(qHeader);
+
+        if (qOpen) {
+          const responses = document.createElement("div");
+          responses.className = "question-responses";
+          responses.style.display = "block";
+
+          q.responses.forEach(r => {
+            const c = CANDIDATES[r.candidate];
+            const isEmpty = !r.text || r.text.trim() === "";
+            const badgeClass = r.support === "support_with_observations" ? "badge-observations" : "badge-support";
+            const badgeLabel = r.support === "support_with_observations" ? "Support (with observations)" : "Support";
+
+            const card = document.createElement("div");
+            card.className = "response-card";
+            card.style.borderLeft = `3px solid ${c.color}`;
+            card.innerHTML = `
+              <div class="response-top${isEmpty ? '' : ' has-text'}">
+                <div class="response-who">
+                  <span class="response-name" style="color:${c.color}">${c.name}</span>
+                  <span class="response-district">${c.district}</span>
+                </div>
+                <span class="badge ${badgeClass}">${badgeLabel}</span>
+              </div>
+              ${isEmpty
+                ? '<p class="response-empty">No explanation provided.</p>'
+                : `<p class="response-text">${r.text}</p>`
+              }
+            `;
+            responses.appendChild(card);
+          });
+
+          qEl.appendChild(responses);
+        }
+
+        qContainer.appendChild(qEl);
+      });
+
+      body.appendChild(qContainer);
+      block.appendChild(body);
+    }
+
+    container.appendChild(block);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
